@@ -1,0 +1,66 @@
+2023-01-05 19:25:31.518 - DBeaver 22.3.1.202212251901 is starting
+2023-01-05 19:25:31.525 - OS: Windows 10 10.0 (amd64)
+2023-01-05 19:25:31.525 - Java version: 11.0.12 by Eclipse Foundation (64bit)
+2023-01-05 19:25:31.525 - Install path: 'C:\springframework_hds\resource\dbeaver-ce-22.3.1-win32.win32.x86_64\dbeaver'
+2023-01-05 19:25:31.525 - Instance path: 'file:/C:/springframework_hds/workspace/script/'
+2023-01-05 19:25:31.525 - Memory available 64Mb/1024Mb
+2023-01-05 19:25:31.547 - Create display
+2023-01-05 19:25:31.660 - Initializing DBeaver 22.3.1
+2023-01-05 19:25:31.660 - Host plugin: org.jkiss.dbeaver.ui.app.standalone 22.3.1.202212251901
+2023-01-05 19:25:31.660 - Initialize desktop platform...
+2023-01-05 19:25:31.866 - BounceCastle bundle found. Use JCE provider BC
+> Start Core File Systems [org.eclipse.core.filesystem 1.9.500.v20220817-1539]
+> Start Core Resource Management [org.eclipse.core.resources 3.18.100.v20221025-2047]
+> Start DBeaver UI Navigator [org.jkiss.dbeaver.ui.navigator 1.0.96.202212251901]
+> Start 팀 지원 핵심 [org.eclipse.team.core 3.9.600.v20220902-2219]
+2023-01-05 19:25:32.099 - Initialize base platform...
+> Start Expression Language [org.eclipse.core.expressions 3.8.200.v20220613-1047]
+2023-01-05 19:25:32.109 - Platform initialized (449ms)
+> Start DBeaver UI Editors - Base [org.jkiss.dbeaver.ui.editors.base 1.0.96.202212251901]
+2023-01-05 19:25:32.126 - Starting RMI server at 46376
+2023-01-05 19:25:32.716 - Run workbench
+> Start Eclipse e4 작업영역 SWT [org.eclipse.e4.ui.workbench.swt 0.16.700.v20221024-2137]
+> Start Eclipse Application Services [org.eclipse.e4.core.services 2.3.400.v20220915-1347]
+> Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.5.100.v20221024-2137]
+> Start Eclipse e4 Progress View [org.eclipse.e4.ui.progress 0.3.600.v20221024-2137]
+> Start EMF XML/XMI Persistence [org.eclipse.emf.ecore.xmi 2.17.0.v20220817-1334]
+> Start Eclipse CSS SWT Theme Support [org.eclipse.e4.ui.css.swt.theme 0.13.200.v20221024-2137]
+> Start Eclipse e4 작업영역 기능 추가 [org.eclipse.e4.ui.workbench.addons.swt 1.4.500.v20221028-0801]
+> Start Eclipse e4 작업영역 SWT 렌더러 [org.eclipse.e4.ui.workbench.renderers.swt 0.15.700.v20221024-2137]
+> Start Eclipse Bindings Support [org.eclipse.e4.ui.bindings 0.13.200.v20221024-2137]
+> Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.17.200.v20220613-1008]
+> Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.14.700.v20221102-0748]
+> Start DBeaver UI [org.jkiss.dbeaver.ui 5.1.111.202212251901]
+> Start Java Native Access [com.sun.jna 5.12.1.v20221103-2317]
+Warning: NLS unused message: BlockedJobsDialog_UserInterfaceTreeElement in: org.eclipse.ui.internal.progress.messages
+2023-01-05 19:25:34.393 - Configure workbench window
+> Start 도움말 시스템 코어 [org.eclipse.help 3.9.100.v20210721-0601]
+2023-01-05 19:25:34.467 - Create actions
+2023-01-05 19:25:34.482 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
+2023-01-05 19:25:34.482 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
+2023-01-05 19:25:34.482 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
+Warning: NLS unused message: actions_menu_reset_ui_settings_title in: org.jkiss.dbeaver.ui.app.standalone.internal.CoreApplicationMessages
+Warning: NLS unused message: actions_menu_reset_ui_settings_message in: org.jkiss.dbeaver.ui.app.standalone.internal.CoreApplicationMessages
+2023-01-05 19:25:35.479 - Initialize workbench window
+2023-01-05 19:25:35.495 - Finish initialization
+> Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.96.202212251901]
+> Start Equinox Java Authentication and Authorization Service (JAAS) [org.eclipse.equinox.security 1.3.1000.v20220801-1135]
+> Start 인터넷 연결 관리 사용자 인터페이스 [org.eclipse.ui.net 1.4.100.v20220812-1406]
+> Start Internet Connection Management [org.eclipse.core.net 1.4.0.v20220813-1037]
+> Start DBeaver Sample Database [org.jkiss.dbeaver.ext.sample.database 1.0.133.202212251901]
+> Start DBeaver Tip of the day [org.jkiss.dbeaver.ext.ui.tipoftheday 1.0.102.202212251901]
+> Start Draw2d [org.eclipse.draw2dl 3.12.100.20221221122425]
+> Start GEF3 GEF (MVC) [org.eclipse.gef3 3.12.100.20221221122425]
+> Start DBeaver ERD UI [org.jkiss.dbeaver.erd.ui 3.0.56.202212251901]
+> Start DBeaver ERD Model [org.jkiss.dbeaver.erd.model 1.0.56.202212251901]
+> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.86.202212251901]
+Warning: NLS unused message: actions_navigator__objects in: org.jkiss.dbeaver.ui.editors.sql.internal.SQLEditorMessages
+> Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.96.202212251901]
+2023-01-05 19:25:36.983 - Total database drivers: 101 (101)
+> Start 기본 문서 편집기 [org.eclipse.ui.editors 3.14.400.v20220730-1844]
+> Start 텍스트 편집기 프레임워크 [org.eclipse.ui.workbench.texteditor 3.16.600.v20220809-1658]
+2023-01-05 19:25:39.461 - Open [https://dbeaver.io/product/version.xml]
+2023-01-05 20:57:02.900 - DBeaver is stopping
+2023-01-05 20:57:02.900 - Stop RMI server
+2023-01-05 20:57:02.904 - RMI controller has been stopped
+2023-01-05 20:57:02.906 - DBeaver shutdown completed

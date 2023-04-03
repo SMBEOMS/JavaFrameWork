@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.board.mapper.BoardMapper">
+
+	<sql id="search"> <!-- sql 사용하는이유 = 재사용을 하기위해서 -->
+		<if test="type != null and keyword != null"> <!-- type, keyword 가 null 이 아닐경우 -->
+			<trim prefix="(" suffix=") AND" prefixOverrides="OR"> <!-- prefixOverrides 맨마지막 쓸모없는 OR 삭제 -->
+																  <!-- suffix = 맨마지막에 붙이는 함수
+																  OR가 먼저와야해서 ()를 붙임 그다음 AND
+																  ROWNUM <= #{pageNum} * #{amount} AND와 붙어야함 -->
+				<foreach item="type" collection="types"> <!-- key값은 인덱스 번호라서 필요X -->
+					<trim prefix="OR"> <!-- when앞에 or써도 되지만 <trim prefix(맨앞에) 써서 OR 한번에 적용 -->
+						<choose>
+							<when test="type == 'T'.toString()">
+								(TITLE LIKE '%' || #{keyword} || '%')
+							</when>
+							<when test="type == 'C'.toString()">
+								(CONTENT LIKE '%' || #{keyword} || '%')
+							</when>
+							<when test="type == 'W'.toString()">
+								(WRITER LIKE '%' || #{keyword} || '%') <!-- 제목 = T, 내용 = C, 작성자 = W -->
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+
+	<select id="getList" resultType="boardVO">
+			SELECT BNO, TITLE, CONTENT, WRITER, REGDATE, UPDATEDATE 
+			FROM
+			(
+				SELECT /*+ INDEX_DESC(TBL_BOARD, SYS_C007039)*/ 
+				ROWNUM RN, BNO, TITLE, CONTENT, WRITER, REGDATE, UPDATEDATE 
+				FROM TBL_BOARD WHERE 
+			<include refid="search"/>
+			<![CDATA[	
+				ROWNUM <= #{pageNum} * #{amount}
+			]]>
+			)
+		<![CDATA[
+			WHERE RN  > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+	
+	<insert id="insert">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			SELECT SEQ_BOARD.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO TBL_BOARD (BNO, TITLE, CONTENT, WRITER)
+		VALUES(#{bno}, #{title}, #{content}, #{writer})
+	</insert>
+	
+	<select id="read" resultType="boardVO">
+		SELECT BNO, TITLE, CONTENT, WRITER, REGDATE, UPDATEDATE
+		FROM TBL_BOARD WHERE BNO = #{bno}
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM TBL_BOARD WHERE BNO = #{bno}
+	</delete>
+	
+	<update id="update">
+		UPDATE TBL_BOARD
+		SET TITLE = #{title}, CONTENT = #{content}, WRITER = #{writer}, UPDATEDATE = SYSDATE
+		WHERE BNO = #{bno}
+	</update>
+	
+	<select id="getTotal" resultType="_int">
+		SELECT COUNT(BNO) FROM TBL_BOARD
+		<where>
+			<trim suffixOverrides="AND">
+				<include refid="search"/>
+			</trim>
+		</where>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
