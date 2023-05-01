@@ -58,7 +58,14 @@ public class ReplyController {
 		log.info("remove.......: " + rno);
 		return replyService.remove(rno) ? "success" : "fail";
 	}
-	
+//	댓글 수정 >>POSTMAPPING 제일 많이쓰긴함
+//	PUT : 자원의 전체 수정, 자원 내 모든 필드를 전달해야 함 (ABC다 수정)
+//	PATCH : 자원의 일부 수정, 수정할 필드만 전송(ABC 중에 수정안하는것만 default 설정)
+	@PutMapping(value = "/{rno}", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public String modify(@PathVariable Long rno, @RequestBody ReplyVO replyVO) {
+		replyVO.setRno(rno);
+		return replyService.modify(replyVO) ? "success" : "fail";
+	}
 }
 
 

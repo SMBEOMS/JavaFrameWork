@@ -103,7 +103,7 @@
 								</div>
 							</div>
 						</form>
-						<div style="text-align: center;" class="small-width">
+						<div style="text-align: center;" class="big-width">
 							<c:if test="${pageDTO.prev}">
 								<a class="changePage" href="${pageDTO.startPage - 1}"><code>&lt;</code></a>
 							</c:if>
