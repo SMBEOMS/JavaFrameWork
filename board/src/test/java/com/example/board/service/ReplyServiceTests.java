@@ -1,4 +1,4 @@
-package com.example.board.domain.dao;
+package com.example.board.service;
 
 import java.util.stream.IntStream;
 
@@ -15,84 +15,62 @@ import lombok.extern.log4j.Log4j;
 @RunWith(SpringRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
-public class ReplyDAOTests {
+public class ReplyServiceTests {
 	
 	private Long[] arBno = {2081L, 2072L, 2071L, 2070L, 2069L};
 	
 	@Autowired
-	private ReplyDAO replyDAO;
+	private ReplyService replyService;
 	
 	@Test
-	public void daoTest() {
+	public void serviceTest() {
 		log.info("==================================");
-		log.info(replyDAO);
+		log.info(replyService);
 		log.info("==================================");
 	}
 	
 //	@Test
 //	public void registerTest() {
 //		//5개의 게시글에 2개씩 댓글 달기
-//		IntStream.rangeClosed(11, 20).forEach(i -> {
+//		IntStream.rangeClosed(21, 30).forEach(i -> {
 //			ReplyVO replyVO = new ReplyVO();
 //			replyVO.setBno(arBno[i % 5]);
 //			replyVO.setReply("댓글 테스트" + i);
 //			replyVO.setReplier("작성자" + i);
 //			
-//			replyDAO.register(replyVO);
+//			replyService.register(replyVO);
 //		});
 //	}
 	
 //	@Test
 //	public void findByRNO_test() {
-//		log.info(replyDAO.findByRNO(26L));
+//		log.info(replyService.findByRNO(30L));
 //	}
 	
 //	@Test
 //	public void removeTest() {
-//		log.info(replyDAO.remove(18L));
+//		log.info(replyService.remove(40L));
 //	}
 	
 //	@Test
 //	public void removeAllByBNO_test() {
 //		log.info("=============================");
-//		log.info(replyDAO.removeAllByBNO(2071L));
+//		log.info(replyService.removeAllByBNO(2070L));
+//		log.info("=============================");
+//	}
+//	
+//	@Test
+//	public void modifyTest() {
+//		ReplyVO replyVO = replyService.findByRNO(12L);
+//		replyVO.setReply("정범석이 수정된 댓글");
+//
+//		log.info("=============================");
+//		log.info(replyService.modify(replyVO));
 //		log.info("=============================");
 //	}
 	
 //	@Test
-//	public void modifyTest() {
-//		ReplyVO replyVO = replyDAO.findByRNO(23L);
-//		replyVO.setReply("수정된 댓글 테스트2");
-//
-//		log.info("=============================");
-//		log.info(replyDAO.modify(replyVO));
-//		log.info("=============================");
+//	public void findAllByBNO_test() {
+//		replyService.findAllByBNO(2069L).forEach(log::info);
 //	}
-	
-	@Test
-	public void findAllByBNO_test() {
-		replyDAO.findAllByBNO(2081L).forEach(log::info);
-	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

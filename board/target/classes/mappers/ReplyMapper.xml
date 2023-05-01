@@ -5,29 +5,53 @@
 		INSERT INTO TBL_REPLY (RNO, BNO, REPLY, REPLIER)
 		VALUES(SEQ_REPLY.NEXTVAL, #{bno}, #{reply}, #{replier})
 	</insert>
-	<!-- VALUES = ReplyVO에서 getter 방식으로 받아옴  {rno} 시퀀스 안받아서 > SEQ_REPLY.NEXTVAL-->
+<!-- VALUES = ReplyVO에서 getter 방식으로 받아옴  {rno} 시퀀스 안받아서 > SEQ_REPLY.NEXTVAL-->
 	
-	<select id="select" resultType="replyVO"> <!-- 컨피그 줘야함 -->
+	<select id="select" resultType="replyVO"><!-- 컨피그 줘야함 -->
 		SELECT RNO, BNO, REPLY, REPLIER, REPLYDATE, UPDATEDATE FROM TBL_REPLY
 		WHERE RNO = #{rno}
 	</select>
-	<delete id = "delete">
+	
+	<delete id="delete">
 		DELETE FROM TBL_REPLY WHERE RNO = #{rno}
 	</delete>
-	<delete id = "deleteAll">
+	
+	<delete id="deleteAll">
 		DELETE FROM TBL_REPLY WHERE BNO = #{bno}
 	</delete>
 	
-	<update id = "update">
+	<update id="update">
 		UPDATE TBL_REPLY
 		SET REPLY = #{reply}, UPDATEDATE = SYSDATE
-		WEHRE RNO = #{rno}
+		WHERE RNO = #{rno}
 	</update>
-	<select id = "selectAll" resultType ="replyVO">
-		SELECT RNO, BNO, REPLY, REPLYDATE, UPDATEDATE
+	
+	<select id="selectAll" resultType="replyVO">
+		SELECT RNO, BNO, REPLY, REPLIER, REPLYDATE, UPDATEDATE
 		FROM TBL_REPLY
-		WEHRE BNO = #{bno}
+		WHERE BNO = #{bno}
 	</select>
+	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
