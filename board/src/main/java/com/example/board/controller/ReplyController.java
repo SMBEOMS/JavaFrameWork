@@ -38,35 +38,6 @@ public class ReplyController {
 			new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); //실패했을때
 	}
 	
-////	게시글 댓글 전체 조회
-//	@GetMapping(value = "/{bno}/{page}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
-//	public ResponseEntity<List<ReplyVO>> getList(@PathVariable("bno") Long bno, @PathVariable int page) {
-//		log.info("getList..... : " + bno);
-//		return new ResponseEntity<>(replyService.findAllByBNO(bno), HttpStatus.OK);
-//	}
-//
-////	댓글 1개 조회
-//	@GetMapping(value = "/{rno}", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-//	public ReplyVO getReply(@PathVariable("rno") Long rno) {
-//		log.info("getReply........ : " + rno);
-//		return replyService.findByRNO(rno);
-//	}
-//	
-////	댓글 삭제
-//	@DeleteMapping(value = "/{rno}", produces = MediaType.TEXT_PLAIN_VALUE)
-//	public String remove(@PathVariable Long rno) {
-//		log.info("remove.......: " + rno);
-//		return replyService.remove(rno) ? "success" : "fail";
-//	}
-//	
-////	댓글 수정
-////	PUT : 자원의 전체 수정, 자원 내 모든 필드를 전달해야 함
-////	PATCH : 자원의 일부 수정, 수정할 필드만 전송
-//	@PutMapping(value = "/{rno}", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
-//	public String modify(@PathVariable Long rno, @RequestBody ReplyVO replyVO) {
-//		replyVO.setRno(rno);
-//		return replyService.modify(replyVO) ? "success" : "fail";
-//	}
 }
 
 
