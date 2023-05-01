@@ -14,5 +14,11 @@ public interface ReplyMapper {
 	public int insert(ReplyVO repyVO);
 	//댓글 하나갖고오기
 	public ReplyVO select(Long rno);
+	//댓글 삭제하기 (return 되는게 건수)
+	public int delete(Long rno);
+	//댓글 다삭제하기(게시글 삭제할때 다삭제)
+	public int deleteAll(Long bno);
+	//수정하기 전체내용을 갖고오고 사용자가 이미 수정한 내용 갖고오기
+	public int update(ReplyVO replyVO);
 
 }
