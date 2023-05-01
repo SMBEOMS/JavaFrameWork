@@ -23,6 +23,11 @@
 		SET REPLY = #{reply}, UPDATEDATE = SYSDATE
 		WEHRE RNO = #{rno}
 	</update>
+	<select id = "selectAll" resultType ="replyVO">
+		SELECT RNO, BNO, REPLY, REPLYDATE, UPDATEDATE
+		FROM TBL_REPLY
+		WEHRE BNO = #{bno}
+	</select>
 </mapper>
 
 

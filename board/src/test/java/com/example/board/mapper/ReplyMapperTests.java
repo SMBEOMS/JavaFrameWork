@@ -56,14 +56,18 @@ public class ReplyMapperTests {
 //	public void deleteAllTest() {
 //		log.info(replyMapper.deleteAll(2072L));
 //	}
-	@Test
-	public void updateTest() {
-		ReplyVO replyVO = replyMapper.select(2L);
-		if(replyVO != null) {
-			replyVO.setReply("수정된 댓글 내용");
-		}
-		log.info("============================================");
-		log.info(replyVO == null? "없는 댓글입니다.":	replyMapper.update(replyVO) + "건 수정되었습니다.");
-		log.info("============================================");
-	}
+//	@Test
+//	public void updateTest() {
+//		ReplyVO replyVO = replyMapper.select(2L);
+//		if(replyVO != null) {
+//			replyVO.setReply("수정된 댓글 내용");
+//		}
+//		log.info("============================================");
+//		log.info(replyVO == null? "없는 댓글입니다.":	replyMapper.update(replyVO) + "건 수정되었습니다.");
+//		log.info("============================================");
+//	}
+//	@Test
+//	public void selectALLTest() {
+//		replyMapper.selectAll(2069L).forEach(log::info);
+//	}
 }
