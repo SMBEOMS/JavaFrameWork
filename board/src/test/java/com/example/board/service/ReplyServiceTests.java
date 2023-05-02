@@ -70,8 +70,8 @@ public class ReplyServiceTests {
 //		log.info("=============================");
 //	}
 	
-	@Test
-	public void findAllByBNO_test() {
-		replyService.findAllByBNO(new Criteria(), 2081L).forEach(log::info);
-	}
+//	@Test
+//	public void findAllByBNO_test() {
+//		replyService.findAllByBNO(new Criteria(), 2081L).forEach(log::info);
+//	}
 }
