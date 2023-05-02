@@ -68,6 +68,6 @@ public class ReplyMapperTests {
 //	}
 //	@Test
 //	public void selectALLTest() {
-//		replyMapper.selectAll(2069L).forEach(log::info);
+//		replyMapper.selectAll(new Criteria(), 2069L).forEach(log::info);
 //	}
 }

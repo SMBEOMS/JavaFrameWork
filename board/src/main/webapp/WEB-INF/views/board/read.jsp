@@ -70,12 +70,17 @@
 	<script>
 		let bno = "${board.bno}";
 		console.log("===JS TEST");		
-		replyService.add({
+		/*replyService.add({
 			bno:bno,
 			reply:"모듈화 테스트",
 			replier:"정범석"
 		}, function(result){
 			console.log(result);
-		});
+		}); */
+		replyService.getList({
+			bno:bno,page: 2},
+			function(list){
+				console.log(list);
+		})
 	</script>
 </html>

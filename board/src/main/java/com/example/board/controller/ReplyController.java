@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.board.domain.vo.Criteria;
 import com.example.board.domain.vo.ReplyVO;
 import com.example.board.service.ReplyService;
 
@@ -43,7 +44,7 @@ public class ReplyController {
 	public ResponseEntity<List<ReplyVO>> getList(@PathVariable("bno") Long bno, @PathVariable int page) {	
 		//URL에 담겨오면 @PathVariable  //XML로 하거나 JSON으로 받거나 두개다 설정함 (데이터가옴)
 		log.info("getList.....: " + bno);
-		return new ResponseEntity<>(replyService.findAllByBNO(bno), HttpStatus.OK);
+		return new ResponseEntity<>(replyService.findAllByBNO(new Criteria(page, 10), bno), HttpStatus.OK);
 	}
 // 댓글 1개 조회(rno번호로 조회)
 	@GetMapping(value="/{rno}", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})

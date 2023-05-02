@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.example.board.domain.vo.Criteria;
 import com.example.board.domain.vo.ReplyVO;
 
 import lombok.extern.log4j.Log4j;
@@ -69,8 +70,8 @@ public class ReplyServiceTests {
 //		log.info("=============================");
 //	}
 	
-//	@Test
-//	public void findAllByBNO_test() {
-//		replyService.findAllByBNO(2069L).forEach(log::info);
-//	}
+	@Test
+	public void findAllByBNO_test() {
+		replyService.findAllByBNO(new Criteria(), 2081L).forEach(log::info);
+	}
 }

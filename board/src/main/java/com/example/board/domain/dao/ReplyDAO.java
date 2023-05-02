@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.example.board.domain.vo.Criteria;
 import com.example.board.domain.vo.ReplyVO;
 import com.example.board.mapper.ReplyMapper;
 
@@ -35,8 +36,8 @@ public class ReplyDAO {
 		return replyMapper.update(replyVO) == 1;
 	}
 	
-	public List<ReplyVO> findAllByBNO(Long bno){
-		return replyMapper.selectAll(bno);
+	public List<ReplyVO> findAllByBNO(Criteria criteria, Long bno){
+		return replyMapper.selectAll(criteria, bno);
 	}
 }
 

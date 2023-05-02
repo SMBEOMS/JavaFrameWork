@@ -28,8 +28,33 @@
  			}
  		});
  	}
+
+ 	// 목록보기  (ReplyController.java에서 게시글 댓글 전체 조회 를 보고 하는거임)
+ 	//param은 게시글 번호와 요청한 페이지를 받아올 수 있는 객체이다.
+ 	function getList(param, callback, error){//객체로 받는걸로함 why? 게시글처럼 받으면 댓글이 너무많으면 스크롤을 계속하게됌
+ 		let bno = param.bno;
+ 		let page = param.page || 1; // let variable = a || b;  ---> a가 값이 없으면 b로 사용된다.
+ 		
+ 		//getJSON()은 빠르고 편하게 요청 후 JSON데이터를 받아오기 위해 사용한다.
+ 		//전송방식은 get방식이다.
+ 		//.json을 붙인 이유는 XML이 default로 설정되어 있기 때문에 JSON 형식으로 전달받기 위해 사용한다.
+ 		$.getJSON("/replies/" + bno + "/" + page + ".json", function(list){//ajax보다 편하게 받을수있음 get = JSON을 가져오는거아님 get방식으로 하는것
+ 													//확장자명이 xml,json인데 xml형태로 와서 json을 붙여야함
+ 			if(callback){
+ 				callback(list);
+ 			}
+ 		}).fail(function(xhr, status, err){
+ 			if(error){
+ 				error(err);
+ 			}
+ 		});
+ 	}
  	
- 	return {add: add}	// {KEY값: VALUE값}
+ 	
+ 	
+ 	
+ 	
+ 	return {add:add, getList:getList}	// {KEY값: VALUE값}
  })();
  
  
