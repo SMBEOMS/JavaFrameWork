@@ -94,11 +94,15 @@
 			page: page
 		},function(list){
 			let str = "";
+			let date = "";
 			for(let i=0; i<list.length; i++){
+				let check = false;
+				check= list[i].replyDate == list[i].updateDate;
+				date = check ? list[i].replyDate : list[i].updateDate;
 				str += `<li style = "display:block";>`;
 				str += `<strong>`+ list[i].replier + `</strong>`;
 				str += `<p>`+ list[i].reply +`</p>`;
-				str += `<strong style="display: block; text-align: right">댓글 작성 시간</strong>`; 
+				str += `<strong style="display: block; text-align: right">` + (check ? "" : "*") + replyService.displayTime(date) + `</strong>`; 
 				str += `<div class="line"></div>`;
 				str += `</li>`;
 			}
