@@ -5,9 +5,8 @@
 		INSERT INTO TBL_REPLY (RNO, BNO, REPLY, REPLIER)
 		VALUES(SEQ_REPLY.NEXTVAL, #{bno}, #{reply}, #{replier})
 	</insert>
-<!-- VALUES = ReplyVO에서 getter 방식으로 받아옴  {rno} 시퀀스 안받아서 > SEQ_REPLY.NEXTVAL-->
 	
-	<select id="select" resultType="replyVO"><!-- 컨피그 줘야함 -->
+	<select id="select" resultType="replyVO">
 		SELECT RNO, BNO, REPLY, REPLIER, REPLYDATE, UPDATEDATE FROM TBL_REPLY
 		WHERE RNO = #{rno}
 	</select>
@@ -30,18 +29,22 @@
 		SELECT RNO, BNO, REPLY, REPLIER, REPLYDATE, UPDATEDATE
 		FROM
 		(
-			SELECT /* + INDEX_DESC(TBL_REPLY,PK_REPLY) */ ROWNUM RN,
+			SELECT /*+ INDEX_DESC(TBL_REPLY, PK_REPLY) */ ROWNUM RN,
 			RNO, BNO, REPLY, REPLIER, REPLYDATE, UPDATEDATE
-			FROM TBL_REPLY WHERE BNO = #{bno} AND	
+			FROM TBL_REPLY WHERE BNO = #{bno} AND
 			<![CDATA[	
-					ROWNUM <= #{cri.pageNum} * #{cri.amount} 
-				]]><!--ReplyMapper에서 @param설정을 해서 cri 붙임 -->
-		)
+					ROWNUM <= #{cri.pageNum} * #{cri.amount}
+			]]>
+		)	
 		<![CDATA[
-			WHERE RN  > (#{cri.pageNum} - 1) * #{cri.amount}
+		WHERE RN  > (#{cri.pageNum} - 1) * #{cri.amount}
 		]]>
 	</select>
 	
+	<select id="getTotal" resultType="_int">
+		SELECT COUNT(RNO) FROM TBL_REPLY
+		WHERE BNO = #{bno}
+	</select>
 </mapper>
 
 

@@ -53,16 +53,16 @@ public class BoardDAOTests {
 
 //	@Test
 //	public void removeTest() {
-//		BoardVO boardVO = boardDAO.get(242L);
+//		BoardVO boardVO = boardDAO.get(24L);
 //		if(boardVO == null) {log.info("NO BOARD"); return;}
 //		
 //		log.info("DELETE : " + boardDAO.remove(boardVO.getBno()));
 //	}
 	
-//	@Test
-//	public void getListTest() {
-//		boardDAO.getList(new Criteria()).forEach(log::info);
-//	}
+	@Test
+	public void getListTest() {
+		boardDAO.getList(new Criteria()).forEach(log::info);
+	}
 }
 
 

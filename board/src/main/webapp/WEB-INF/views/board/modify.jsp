@@ -28,7 +28,7 @@
 					<div class="content">
 						<div class="form">
 							<form action="/board/modify" method="post">
-								<input type="hidden" name="pageNum" value="${criteria.pageNum}"> <!-- 수정후 페이지 기억하기 -->
+								<input type="hidden" name="pageNum" value="${criteria.pageNum}">
 								<input type="hidden" name="type" value="${criteria.type}">
 								<input type="hidden" name="keyword" value="${criteria.keyword}">
 								<div class="fields">

@@ -73,15 +73,15 @@ public class BoardController {
 	}
 	
 	@PostMapping("/modify")
-	public String modify(Criteria criteria, BoardVO boardVO, RedirectAttributes rttr) { //수정완료후 페이지기억하기위해 Criteria criteria
+	public String modify(Criteria criteria, BoardVO boardVO, RedirectAttributes rttr) {
 		log.info("/modify : " + boardVO);
 		if(boardService.modify(boardVO)) {
-			rttr.addFlashAttribute("result", "success"); //화면쪽으로 전달
+			rttr.addFlashAttribute("result", "success");
 		}
 //		rttr.addAttribute("pageNum", criteria.getPageNum());
 //		rttr.addAttribute("type", criteria.getType());
 //		rttr.addAttribute("keyword", criteria.getKeyword());
-		return "redirect:/board/list" + criteria.getParams(); //
+		return "redirect:/board/list" + criteria.getParams();
 	}
 	
 	@GetMapping("/register")

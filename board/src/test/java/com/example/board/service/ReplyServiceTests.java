@@ -45,7 +45,7 @@ public class ReplyServiceTests {
 	
 //	@Test
 //	public void findByRNO_test() {
-//		log.info(replyService.findByRNO(30L));
+//		log.info(replyService.findByRNO(40L));
 //	}
 	
 //	@Test
@@ -59,19 +59,19 @@ public class ReplyServiceTests {
 //		log.info(replyService.removeAllByBNO(2070L));
 //		log.info("=============================");
 //	}
-//	
+	
 //	@Test
 //	public void modifyTest() {
-//		ReplyVO replyVO = replyService.findByRNO(12L);
-//		replyVO.setReply("정범석이 수정된 댓글");
+//		ReplyVO replyVO = replyService.findByRNO(39L);
+//		replyVO.setReply("수정된 댓글 테스트3");
 //
 //		log.info("=============================");
 //		log.info(replyService.modify(replyVO));
 //		log.info("=============================");
 //	}
 	
-//	@Test
-//	public void findAllByBNO_test() {
-//		replyService.findAllByBNO(new Criteria(), 2081L).forEach(log::info);
-//	}
+	@Test
+	public void findAllByBNO_test() {
+		replyService.findAllByBNO(new Criteria(), 2081L).forEach(log::info);
+	}
 }

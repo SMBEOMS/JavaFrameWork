@@ -85,26 +85,26 @@
  	function displayTime(timeValue){
  		let today = new Date();
  		let date = new Date(timeValue);
- 		let gap = new today.getTime() - date.getTime();
+ 		let gap = today.getTime() - date.getTime();
  		
- 		if(gap < 1000 * 60 *60 * 24 ){ //24시간 이전 을 만드는 것 
+ 		if(gap < 1000 * 60 * 60 * 24){
  			let hh = date.getHours();
  			let mm = date.getMinutes();
  			let ss = date.getSeconds();
  			
- 			return [hh < 10 ? "0" + hh : hh, mm < 10 ? "0" + mm : mm, ss< 10 ? "0" + ss : ss].join(':');
- 		
- 		}else{
+ 			return [hh < 10 ? "0" + hh : hh, mm < 10 ? "0" + mm : mm, ss < 10 ? "0" + ss : ss].join(':');
+ 			 			
+ 		}else {
  			let yy = date.getFullYear();
- 			let mm = date.getMonth() +1 ; // 4월이면 숫자 3을 갖어옴
- 		    let dd = date.getDate();
- 		    
- 		    return [yy, mm< 10 ? "0" + mm : mm, dd< 10 ? "0" + dd:dd].join('-');
+ 			let mm = date.getMonth() + 1;
+ 			let dd = date.getDate();
+ 			
+ 			return [yy, mm < 10 ? "0" + mm : mm, dd < 10 ? "0" + dd : dd].join('-');
+ 			
  		}
  	}
-
  	 	
- 	return {add: add, getList: getList, remove: remove, modify: modify, getReply: getReply}	
+ 	return {add: add, getList: getList, remove: remove, modify: modify, getReply: getReply, displayTime: displayTime}	
  })();
  
  

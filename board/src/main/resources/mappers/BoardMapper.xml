@@ -2,14 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.board.mapper.BoardMapper">
 
-	<sql id="search"> <!-- sql 사용하는이유 = 재사용을 하기위해서 -->
-		<if test="type != null and keyword != null"> <!-- type, keyword 가 null 이 아닐경우 -->
-			<trim prefix="(" suffix=") AND" prefixOverrides="OR"> <!-- prefixOverrides 맨마지막 쓸모없는 OR 삭제 -->
-																  <!-- suffix = 맨마지막에 붙이는 함수
-																  OR가 먼저와야해서 ()를 붙임 그다음 AND
-																  ROWNUM <= #{pageNum} * #{amount} AND와 붙어야함 -->
-				<foreach item="type" collection="types"> <!-- key값은 인덱스 번호라서 필요X -->
-					<trim prefix="OR"> <!-- when앞에 or써도 되지만 <trim prefix(맨앞에) 써서 OR 한번에 적용 -->
+	<sql id="search">
+		<if test="type != null and keyword != null">
+			<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+				<foreach item="type" collection="types">
+					<trim prefix="OR">
 						<choose>
 							<when test="type == 'T'.toString()">
 								(TITLE LIKE '%' || #{keyword} || '%')
@@ -18,7 +15,7 @@
 								(CONTENT LIKE '%' || #{keyword} || '%')
 							</when>
 							<when test="type == 'W'.toString()">
-								(WRITER LIKE '%' || #{keyword} || '%') <!-- 제목 = T, 내용 = C, 작성자 = W -->
+								(WRITER LIKE '%' || #{keyword} || '%')
 							</when>
 						</choose>
 					</trim>
@@ -31,7 +28,7 @@
 			SELECT BNO, TITLE, CONTENT, WRITER, REGDATE, UPDATEDATE 
 			FROM
 			(
-				SELECT /*+ INDEX_DESC(TBL_BOARD, SYS_C007007)*/ 
+				SELECT /*+ INDEX_DESC(TBL_BOARD, SYS_C007006)*/ 
 				ROWNUM RN, BNO, TITLE, CONTENT, WRITER, REGDATE, UPDATEDATE 
 				FROM TBL_BOARD WHERE 
 			<include refid="search"/>
